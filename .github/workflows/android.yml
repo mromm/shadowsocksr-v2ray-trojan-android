@@ -23,7 +23,7 @@ jobs:
       run: ./gradlew app:assembleRelease
         
     - name: Rename signed apk
-      run: mv app/build/outputs/apk/release/app-release-unsigned.apk app/build/outputs/apk/release/ChromeXt.apk
+      run: mv app/build/outputs/apk/release/app-release-unsigned.apk app/build/outputs/apk/release/SSRRAY.apk
 
     - uses: noriban/sign-android-release@master
       name: Sign app APK
@@ -38,10 +38,10 @@ jobs:
     - name: Upload signed APK
       uses: actions/upload-artifact@main
       with:
-        name: ChromeXt.apk
+        name: SSRRAY.apk
         path: ${{steps.sign_app.outputs.signedReleaseFile}}
 
     - name: Collect signed APK
       uses: actions/download-artifact@main
       with:
-        name: ChromeXt.apk
+        name: SSRRAY.apk
